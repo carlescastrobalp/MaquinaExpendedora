@@ -20,6 +20,9 @@ public class ProductoDTO {
     @Column(name = "precio")
     private double precio;
 
+    //Sino se cree un constructor, JPA (que son les annotacions per indentificar la taula a bbdd)
+    //creara un constructor buit
+
     public String getReferencia() {
         return referencia;
     }

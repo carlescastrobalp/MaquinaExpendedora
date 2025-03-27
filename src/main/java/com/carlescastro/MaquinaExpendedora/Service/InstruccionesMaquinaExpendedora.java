@@ -7,12 +7,12 @@ import java.util.List;
 
 public class InstruccionesMaquinaExpendedora {
 
-    private final RepositoryProductos repositoryProductos;
+    private RepositoryProductos repositoryProductos;
 
-    //Gestion de injeccion del Repositorio, ya que el repositorio se encarga de acceder a base de datos
+    /*//Gestion de injeccion del Repositorio, ya que el repositorio se encarga de acceder a base de datos
     public InstruccionesMaquinaExpendedora(RepositoryProductos repositoryProductos) {
         this.repositoryProductos = repositoryProductos;
-    }
+    }*/
 
     /**
      * Inserta uno o más productos en la base de datos.
