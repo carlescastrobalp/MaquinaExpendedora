@@ -3,16 +3,32 @@ package com.carlescastro.MaquinaExpendedora.Service;
 import com.carlescastro.MaquinaExpendedora.Model.ProductoDTO;
 import com.carlescastro.MaquinaExpendedora.Repository.RepositoryProductos;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class InstruccionesMaquinaExpendedora {
+public class InstruccionesMaquinaExpendedoraService {
 
     private RepositoryProductos repositoryProductos;
 
-    /*//Gestion de injeccion del Repositorio, ya que el repositorio se encarga de acceder a base de datos
+    /*//El constructor gestion de injeccion del Repositorio, ya que el repositorio se encarga de acceder a base de datos
     public InstruccionesMaquinaExpendedora(RepositoryProductos repositoryProductos) {
         this.repositoryProductos = repositoryProductos;
     }*/
+
+    public List<String> estadoProductos(){
+        List<ProductoDTO> productoList = repositoryProductos.findAll();
+        List<String> mensajeStock = new ArrayList<>();
+
+        for(ProductoDTO producto : productoList){
+            if(producto.getCantidad() == 0 || producto.getCantidad() == 0){
+                String mensaje = "AVISO: El producto " + producto.getNombre()
+                        + " (Código: " + producto.getCodigo() + ") no tiene stock disponible.";
+                mensajeStock.add(mensaje);
+            }
+        }
+
+        return mensajeStock;
+    }
 
     /**
      * Inserta uno o más productos en la base de datos.

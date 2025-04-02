@@ -23,6 +23,17 @@ public class ProductoDTO {
     //Sino se cree un constructor, JPA (que son les annotacions per indentificar la taula a bbdd)
     //creara un constructor buit
 
+    public ProductoDTO() {
+    }
+
+    public ProductoDTO(String referencia, String codigo, String nombre, int cantidad, double precio) {
+        this.referencia = referencia;
+        this.codigo = codigo;
+        this.nombre = nombre;
+        this.cantidad = cantidad;
+        this.precio = precio;
+    }
+
     public String getReferencia() {
         return referencia;
     }

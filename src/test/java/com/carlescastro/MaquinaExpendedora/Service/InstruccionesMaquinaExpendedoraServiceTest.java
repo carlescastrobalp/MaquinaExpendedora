@@ -8,16 +8,16 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.when;
 
 //Es necesario para inicializar las anotaciones de Mockito, sino salta un NullPointerException
 @ExtendWith(MockitoExtension.class)
-class InstruccionesMaquinaExpendedoraTest {
+class InstruccionesMaquinaExpendedoraServiceTest {
 
     @Mock
     RepositoryProductos repositoryProductos;
 
-    @InjectMocks InstruccionesMaquinaExpendedora instruccionesMaquinaExpendedora;
+    @InjectMocks
+    InstruccionesMaquinaExpendedoraService instruccionesMaquinaExpendedoraService;
 
     @Test
     void testInsertarProductos() {
@@ -26,7 +26,7 @@ class InstruccionesMaquinaExpendedoraTest {
     @Test
     public void testConsumirProducto() {
         IllegalArgumentException exception =
-                assertThrows(IllegalArgumentException.class, () -> instruccionesMaquinaExpendedora.consumirProducto("2"));
+                assertThrows(IllegalArgumentException.class, () -> instruccionesMaquinaExpendedoraService.consumirProducto("2"));
         assertEquals("Codigo de producto incorrecto", exception.getMessage());
     }
 }
